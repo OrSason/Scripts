@@ -32,8 +32,8 @@ how to use:
 2. Contain both alphabet and number.
 3. Include both the small and capital case letters.
 	   
-if one or more rules fail it will display the password in red color. and display which rule failed
-if none of them fail it will display the password in green color
+if one or more rules fail it will display the password in red color and display which rule failed.
+if none of them fails it will print the password in green color
 
 how to use?
 

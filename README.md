@@ -8,25 +8,25 @@ myTask.ps1 - Contain PS script that create a text file with selected text and op
 taskManager.ps1 - Powershell Script, contain 3 functions:
 
 
-<b>Create Task</b> - creating a scheduled task that run myTask.ps1
-	how to use:
+ **Create Task** - creating a scheduled task that run myTask.ps1
+  how to use:
 	
-	 run ./taskmanager.ps1
-	  
-	 PS > Create Task ["Task's name"] ["Time In Seconds"]
+   '''Powershell
+   PS> ./taskmanager.ps1 
+   PS> Create Task ["Task's name"] ["Time In Seconds"]	 
+   '''
 	 
 	 
-	 
-	 
-<b>Get-AllTasks</b> - getting all Active Task On the TaskScheduler
+ **Get-AllTasks** - getting all Active Task On the TaskScheduler
 	
 	
 	 
 	
-<b>Change-TaskStatus</b>- Disable/Enable task by name
-	 
-	PS > Change-TaskStatus ["Task's Name"]
+ **Change-TaskStatus**- Disable/Enable task by name
 	
+   ''' 
+   PS > Change-TaskStatus ["Task's Name"]
+   '''
 	
 
  

@@ -1,3 +1,6 @@
+# This script contain 3 functions
+#1. Create-Task [TaskName] [waitInSeconds]  - Creating a task that would get as input name and time
+#the task will open a text file with notepad and repeat it with given time
 
 function Create-Task{ 
     [CmdletBinding()]
@@ -13,6 +16,7 @@ function Create-Task{
 
 }
 
+#2. Get-AllTasks - Print all running tasks
 
 function Get-AllTasks {
     [CmdletBinding()]
@@ -22,6 +26,7 @@ function Get-AllTasks {
     }
 }
 
+#3. Change-TaskStatus [TaskName] - Enable/Disable a task depends on task's status
 
 function Change-TaskStatus {
     [CmdletBinding()]

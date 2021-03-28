@@ -3,7 +3,7 @@
 
 <h2>Poweshell:</h2>
 <p>
-**myTask.ps1** - Contain PS script that create a text file with selected text and open it with notepad
+myTask.ps1 - Contain PS script that create a text file with selected text and open it with notepad
 </p>
 
 taskManager.ps1 - Powershell Script, contain 3 functions:

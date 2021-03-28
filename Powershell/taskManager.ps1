@@ -1,13 +1,13 @@
 
-function Create-Task{
+function Create-Task{ 
     [CmdletBinding()]
     param (
         $taskName,$time
     )
     process {
-    $action = New-ScheduledTaskAction   -Argument 'c:/test/myTask.ps1'  -Execute 'powershell.exe'
+    $action = New-ScheduledTaskAction  -Argument 'c:/test/myTask.ps1'  -Execute 'powershell.exe' 
     $trigger = New-ScheduledTaskTrigger -Once -at (Get-Date) -RepetitionInterval (New-TimeSpan -Seconds $time) 
-    Register-ScheduledTask -Action $action -Trigger $trigger -TaskName $taskName  -Description "Run and repeat task from input"
+    Register-ScheduledTask -Action $action -Trigger $trigger  -TaskName $taskName  -Description "Run and repeat task from input"
     Start-ScheduledTask myTask
     }
 

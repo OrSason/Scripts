@@ -7,6 +7,7 @@ myTask.ps1 - Contain PS script that create a text file with selected text and op
 </p>
 
 taskManager.ps1 - Powershell Script, contain 4 functions:
+
   **Help** - print information about the functions and examples
 
   **Create Task** - creating a scheduled task that run myTask.ps1

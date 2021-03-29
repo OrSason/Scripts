@@ -1,17 +1,19 @@
 # This script contain 3 functions
-#1. Create-Task [TaskName] [waitInSeconds]  - Creating a task that would get as input name and time
-#the task will open a text file with notepad and repeat it with given time
+#1. Create-Task [TaskName] [waitInSeconds]  - Creating a task that would get as input name and WaitInSeconds
+#the task will open a text file with notepad and repeat it with given WaitInSeconds
+param 
+([Parameter(Position=0)][string]$TaskName, [Parameter(Position=1)][int]$WaitInSeconds)
 
-function Create-Task{ 
+function Create-Task{
     [CmdletBinding()]
     param (
-        $taskName,$time
+        $TaskName,$WaitInSeconds
     )
     process {
-    $action = New-ScheduledTaskAction  -Argument 'c:/test/myTask.ps1'  -Execute 'powershell.exe' 
-    $trigger = New-ScheduledTaskTrigger -Once -at (Get-Date) -RepetitionInterval (New-TimeSpan -Seconds $time) 
-    Register-ScheduledTask -Action $action -Trigger $trigger  -TaskName $taskName  -Description "Run and repeat task from input"
-    Start-ScheduledTask myTask
+    $action = New-ScheduledTaskAction   -Argument 'c:/test/myTask.ps1'  -Execute 'powershell.exe'
+    $trigger = New-ScheduledTaskTrigger -Once -at (Get-Date) -RepetitionInterval (New-TimeSpan -Seconds $WaitInSeconds) 
+    Register-ScheduledTask -Action $action -Trigger $trigger -TaskName $TaskName  -Description "Run and repeat task from input"
+    Start-ScheduledTask $TaskName
     }
 
 }
@@ -30,27 +32,31 @@ function Get-AllTasks {
 
 function Change-TaskStatus {
     [CmdletBinding()]
-    param ( $taskName)
+    param ( $TaskName)
     process {
        
         try{
 
-        $task = Get-ScheduledTask $taskName
+        $task = Get-ScheduledTask $TaskName
         if($task.State -eq 'Ready')
         {
-            Stop-ScheduledTask -TaskName $taskName
-            Disable-ScheduledTask -TaskName $taskName
+            Stop-ScheduledTask -TaskName $TaskName
+            Disable-ScheduledTask -TaskName $TaskName
         }
         elseif($task.State -eq 'Disable')
         {
-        Enable-ScheduledTask -TaskName $taskName
-        Start-ScheduledTask -TaskName $taskName  
+        Enable-ScheduledTask -TaskName $TaskName
+        Start-ScheduledTask -TaskName $TaskName  
         }
     }
     catch{
-        Read-Host 'Could not found Proccess' 
+        Read-Output 'Could not found Proccess' 
     }
     }
 }
 
-
+#if the user entered both task's name and wait in Seconds lunch Create-task function
+if ( $null -ne  $TaskName && $null -ne $WaitInSeconds)
+{
+    Create-Task $TaskName $WaitInSeconds
+}

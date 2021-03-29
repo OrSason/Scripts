@@ -6,14 +6,15 @@
 myTask.ps1 - Contain PS script that create a text file with selected text and open it with notepad
 </p>
 
-taskManager.ps1 - Powershell Script, contain 3 functions:
+taskManager.ps1 - Powershell Script, contain 4 functions:
+  **Help** - print information about the functions and examples
 
   **Create Task** - creating a scheduled task that run myTask.ps1
 	
 how to use:
 
-	PS> ./taskmanager.ps1 
-	PS> Create Task [Task's name] ["Time In Seconds"]	 
+	PS> ./taskmanager.ps1 -TaskName [Task's name] -WaitInSeconds ["Time In Seconds"]
+		 
 		   
 
 

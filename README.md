@@ -24,7 +24,7 @@ How to use:
 
   4. **Change-TaskStatus**- Disable/Enable task by name
 
-	  PS > Change-TaskStatus ["Task's Name"]
+	     PS > Change-TaskStatus ["Task's Name"]
 	  
 	  
 <h2>Bash:</h2>
